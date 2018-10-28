@@ -6,12 +6,10 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^$', views.dashboard, name='dashboard'),
+    path('', views.dashboard, name='dashboard'),
     path('account/', include('django.contrib.auth.urls')),
 
-    # url(r'^register/$', views.register, name='register'),
     path('register/', views.register, name='register'),
-    # url(r'^edit/$', views.edit, name='edit'),
     path('edit/', views.edit, name='edit'),
 
     # login / logout urls

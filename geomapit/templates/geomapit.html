@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Geocode{% endblock %}
+{% block content %}
+    <h1>Get Reverse GeoCode</h1>
+    <p>Please enter latitude and longitude for the location you wish to find:</p>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Lookup"></p>
+    </form>
+{% endblock %}
