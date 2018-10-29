@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% include context %}
+{% block title %}Geocode{% endblock %}
+{% block content %}
+    <h1>Get distance between two locations</h1>
+    <p>Please enter two address:</p>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Lookup"></p>
+    </form>
+
+{% endblock %}

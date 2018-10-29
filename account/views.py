@@ -1,3 +1,10 @@
+'''
+Description - User Views
+@author - John Sentz
+@date - 29-Oct-2018
+@time - 10:33 AM
+'''
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -64,6 +71,7 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
+            return render(request, 'account/dashboard.html')
         else:
             messages.error(request, 'Error updating your profile')
     else:

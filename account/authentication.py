@@ -1,3 +1,11 @@
+'''
+Description - Email Authentication
+@author - John Sentz
+@date - 29-Oct-2018
+@time - 10:24 AM
+'''
+
+
 from django.contrib.auth.models import User
 
 

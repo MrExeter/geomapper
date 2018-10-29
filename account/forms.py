@@ -1,3 +1,10 @@
+'''
+Description - User Account Forms
+@author - John Sentz
+@date - 29-Oct-2018
+@time - 10:27 AM
+'''
+
 from django import forms
 from django.contrib.auth.models import User
 

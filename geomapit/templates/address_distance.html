@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% include context %}
+{% block title %}Distance Between Addresses{% endblock %}
+{% block content %}
+    <h1>Distance Between Addresses</h1>
+    <br>
+    <h3>Address 1 : {{ address_1.title }}</h3>
+    <h3>Address 2 : {{ address_2.title }}</h3>
+
+
+    <h3>Distance  : <strong>{{ distance }} {{ units }}</strong></h3>
+
+   
+
+{% endblock %}

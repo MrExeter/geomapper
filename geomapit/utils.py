@@ -1,8 +1,17 @@
+'''
+Description - Utility Class for making Google Geo Coding API calls
+@author - John Sentz
+@date - 29-Oct-2018
+@time - 10:41 AM
+'''
+
+from math import sin, cos, sqrt, atan2, radians
+
 import googlemaps
-from chanfact.settings import API_KEY
-import requests
 import json
-from math import sin, cos, sqrt, atan, atan2, radians
+import requests
+
+from chanfact.settings import API_KEY
 
 EARTH_RADIUS_METERS = 6.731 * 10 ** 6
 EARTH_RADIUS_YARDS = 7.3611 * 10 ** 6
@@ -12,26 +21,24 @@ BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?"
 class GeoCoder:
 
     @classmethod
-    def distance_between_points(cls, point_1, point_2, units):
+    def distance_between_points(cls, coordinate_pair, units):
         """
-        :param point_1: - A tuple with the lat and lon for point_1
-        :param point_2: - A tuple with the lat and lon for point_2
-        :param units: - Specifies whether metric (meters) or standard (yards)
-        :return: - The simple 'as the bird flies' distance in meters or yards
+        Function to calculate the simple 'straight' line path between two points on a sphere
+        :param coordinate_pair: - Dictionary wotj two coordinate pairs described in lats and longs
+        :param units: - Specifies whether metric (meters) of standard (yards)
+        :return: - The distance between the two coordinates on he surface of a sphere.
         """
+        lat_1 = coordinate_pair.get('latitude_1')      # Access the individual lat, lon values
+        lon_1 = coordinate_pair.get('longitude_1')
 
-        lat_1 = point_1[0]      # Access the individual lat, lon values
-        lon_1 = point_1[1]
-
-        lat_2 = point_2[0]
-        lon_2 = point_2[1]
+        lat_2 = coordinate_pair.get('latitude_2')
+        lon_2 = coordinate_pair.get('longitude_2')
 
         """
         The following is a calculation based on the Haversine Formula.
         It calculates the simple distance between two points on the surface
         of a sphere, given the lat and lon angles of each point.
         """
-
         lat_radians_1 = radians(lat_1)      # Convert all angles from degrees to radians
         lat_radians_2 = radians(lat_2)
 
@@ -41,7 +48,7 @@ class GeoCoder:
         the_a = sin(delta_lats / 2) ** 2 + cos(lat_radians_1) * cos(lat_radians_2) * sin(delta_lons / 2) ** 2
         the_c = 2 * atan2(sqrt(the_a), sqrt(1 - the_a))
 
-        if units == 'METRIC':
+        if units.get('units') == 'METRIC':
             earth_radius = EARTH_RADIUS_METERS
         else:
             earth_radius = EARTH_RADIUS_YARDS
@@ -80,8 +87,8 @@ class GeoCoder:
         """
 
         params = "latlng={lat},{lon}&key={key}".format(
-            lat=latlng[0],
-            lon=latlng[1],
+            lat=latlng.get('latitude'),
+            lon=latlng.get('longitude'),
             key=API_KEY
         )
 
@@ -89,18 +96,8 @@ class GeoCoder:
         response = requests.get(url)
         data = json.loads(response.text)
         if data["status"] == 'OK':
-            found_address = data['results'][0]['formatted_address']
+            found_address = data['results'][1]['formatted_address']
         else:
             found_address = 'No address found'
 
         return found_address
-
-
-# address = "271 East Bellevue Dr., Pasadena, CA 91101"
-# my_geocode = GeoCoder.get_geocode(address)
-# print(my_geocode)
-#
-# dummy=21
-# address = GeoCoder.get_reverse_geocode((my_geocode.get("latitude"), my_geocode.get("longitude")))
-# print(address)
-# debug = 99

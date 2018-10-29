@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+            crossorigin=""></script>
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
 </head>
 <body>
 
@@ -13,8 +35,10 @@
         {% if request.user.is_authenticated %}
         <ul class="menu">
             <li {% if section == 'dashboard' %}class="selected"{% endif %}><a href="{% url 'dashboard' %}">My dashboard</a></li>
-            <li {% if section == "images" %}class="selected"{% endif %}><a href="#">Images</a></li>
-            <li {% if section == "people" %}class="selected"{% endif %}><a href="#">People</a></li>
+            <li {% if section == "geocode" %}class="selected"{% endif %}><a href="{% url 'geocode' %}">Get Geocode</a></li>
+            <li {% if section == "geomapit" %}class="selected"{% endif %}><a href="{% url 'geomapit' %}">Reverse Geocode</a></li>
+            <li {% if section == "geocode_distance" %}class="selected"{% endif %}><a href="{% url 'geodistance_geocode' %}">Geocode Distance</a></li>
+            <li {% if section == "address_distance" %}class="selected"{% endif %}><a href="{% url 'geodistance_address' %}">Address Distance</a></li>
         </ul>
         {% endif %}
 

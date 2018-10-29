@@ -1,3 +1,10 @@
+'''
+Description - User Model
+@author - John Sentz
+@date - 29-Oct-2018
+@time - 10:34 AM
+'''
+
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User

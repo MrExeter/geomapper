@@ -1,7 +1,7 @@
 import os
 
 ###############################################################################
-API_KEY = "AIzaSyBExrxjY958oeizUSRAaqHhx_kQabfjVyQ"     # Put in secret file.
+API_KEY = "INSERT YOUR SECRET KEY HERE"
 ###############################################################################
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

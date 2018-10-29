@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% include context %}
+{% block title %}Distance Between Points{% endblock %}
+{% block content %}
+    <h1>Distance Between A Pair of Coordinates</h1>
+    <br>
+    <h3>Point 1 :::> Latitude {{ latitude_1 }}, Longitude {{ longitude_1 }}</h3>
+    <h3>Point 2 :::> Latitude {{ latitude_2 }}, Longitude {{ longitude_2 }}</h3>
+
+
+    <h3>Distance  : <strong>{{ distance }} {{ units }}</strong></h3>
+
+   
+
+{% endblock %}
