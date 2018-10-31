@@ -1,0 +1,1 @@
+web: gunicorn chanfact.wsgi --log-file -
