@@ -1,7 +1,21 @@
 import os
 
 ###############################################################################
-API_KEY = "INSERT YOUR SECRET KEY HERE"
+from decouple import config
+
+# API_KEY = "INSERT YOUR SECRET KEY HERE"
+API_KEY = config('API_KEY')
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = '9!h4)lm$b(02q$((_uz*4c#z2g#^ttrnr$u%)6d5ot-pj-v0-)'
+SECRET_KEY = config('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ["*"]
+
 ###############################################################################
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -11,13 +25,35 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9!h4)lm$b(02q$((_uz*4c#z2g#^ttrnr$u%)6d5ot-pj-v0-)'
+###############################################################################
+###############################################################################
+###############################################################################
+#
+# COMMENT OUT WHEN IN DEVELOPMENT MODE!!!!!!!!!!!!!!!!!!!!!!!
+#
+# Extra Security settings
+#
+# Enforce Https:
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+os.environ['HTTPS'] = "on"
+os.environ['wsgi.url_scheme'] = 'https'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ["*"]
+# Default to 60 minutes
+SECURE_HSTS_SECONDS = 3600
+#
+# COMMENT OUT WHEN IN DEVELOPMENT MODE!!!!!!!!!!!!!!!!!!!!!!!
+#
+###############################################################################
+###############################################################################
+###############################################################################
 
 
 # Application definition
