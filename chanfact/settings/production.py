@@ -6,7 +6,7 @@ from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
 
 SECRET_KEY = config('SECRET_KEY')
 API_KEY = config('API_KEY')
-DEBUG = False
+DEBUG = True
 
 
 ###############################################################################
