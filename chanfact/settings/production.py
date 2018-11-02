@@ -39,7 +39,7 @@ SECURE_HSTS_SECONDS = 3600
 ###############################################################################
 ###############################################################################
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '*']
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
