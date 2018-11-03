@@ -86,8 +86,8 @@ DATABASES = {
 # DB_URL = dj_database_url.parse(DATABASE_URL)
 
 
-EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+# EMAIL_USE_TLS = True
 # MAILGUN_API_KEY = config('MAILGUN_API_KEY')
 #
 # MAILGUN_ACCESS_KEY = config('MAILGUN_ACCESS_KEY')
