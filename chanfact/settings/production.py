@@ -3,10 +3,12 @@ from .base import *
 import dj_database_url
 from decouple import config, Csv
 from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
+import django_heroku
+
 
 SECRET_KEY = config('SECRET_KEY')
 API_KEY = config('API_KEY')
-DEBUG = True
+DEBUG = False
 
 
 ###############################################################################
@@ -115,3 +117,5 @@ LOGGING = {
     },
 }
 
+# Activate Django-Heroku.
+django_heroku.settings(locals())
