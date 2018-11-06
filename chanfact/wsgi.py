@@ -1,11 +1,9 @@
-"""
-WSGI config for chanfact project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
-"""
+'''
+Description - WSGI file
+@author - John Sentz
+@date - 06-Nov-2018
+@time - 1:09 PM
+'''
 
 import os
 

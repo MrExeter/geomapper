@@ -1,3 +1,9 @@
+'''
+Description - Main application URLS file
+@author - John Sentz
+@date - 06-Nov-2018
+@time - 1:09 PM
+'''
 
 from django.contrib import admin
 from django.urls import path, include

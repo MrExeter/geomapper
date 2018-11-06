@@ -3,6 +3,8 @@
 There is a Requirements.txt file, this should contain all dependencies that 
 need to be installed locally,
 
+Also, you will have to create either a PostgreSQL or SQLite3 database and make appropriate migrations and set passwords etc.
+
 **Kernel version :** _Python 3.6.0_
 
 **Note:** _Settings has DEBUG = True_

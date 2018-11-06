@@ -1,4 +1,10 @@
-from django.conf.urls import url
+'''
+Description - User authentication & registration URLS
+@author - John Sentz
+@date - 06-Nov-2018
+@time - 1:40 PM
+'''
+
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 

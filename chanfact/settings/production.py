@@ -1,8 +1,7 @@
 
 from .base import *
 import dj_database_url
-from decouple import config, Csv
-from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
+from decouple import config
 import django_heroku
 
 
@@ -14,8 +13,6 @@ DEBUG = True
 ###############################################################################
 ###############################################################################
 ###############################################################################
-#
-# COMMENT OUT WHEN IN DEVELOPMENT MODE!!!!!!!!!!!!!!!!!!!!!!!
 #
 # Extra Security settings
 #
@@ -34,8 +31,7 @@ SECURE_HSTS_PRELOAD = True
 
 # Default to 60 minutes
 SECURE_HSTS_SECONDS = 3600
-
-# COMMENT OUT WHEN IN DEVELOPMENT MODE!!!!!!!!!!!!!!!!!!!!!!!
+#
 #
 ###############################################################################
 ###############################################################################
@@ -44,16 +40,12 @@ SECURE_HSTS_SECONDS = 3600
 ALLOWED_HOSTS = ['localhost', '*']
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT = 'static'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/assets/'
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'assets'),
@@ -86,6 +78,12 @@ DATABASES = {
 # DB_URL = dj_database_url.parse(DATABASE_URL)
 
 
+###############################################################################
+###############################################################################
+###############################################################################
+#
+# Mailgun Config
+#
 # EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 # EMAIL_USE_TLS = True
 # MAILGUN_API_KEY = config('MAILGUN_API_KEY')
@@ -99,7 +97,10 @@ DATABASES = {
 # MAILGUN_SMTP_PASSWORD = config('MAILGUN_SMTP_PASSWORD')
 # MAILGUN_SMTP_PORT = config('MAILGUN_SMTP_PORT')
 # MAILGUN_SMTP_SERVER = config('MAILGUN_SMTP_SERVER')
-
+#
+###############################################################################
+###############################################################################
+###############################################################################
 
 LOGGING = {
     'version': 1,
