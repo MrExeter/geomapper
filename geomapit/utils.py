@@ -48,7 +48,7 @@ class GeoCoder:
         the_a = sin(delta_lats / 2) ** 2 + cos(lat_radians_1) * cos(lat_radians_2) * sin(delta_lons / 2) ** 2
         the_c = 2 * atan2(sqrt(the_a), sqrt(1 - the_a))
 
-        if units.get('units') == 'METRIC':
+        if units.get('units') == '1':
             earth_radius = EARTH_RADIUS_METERS
         else:
             earth_radius = EARTH_RADIUS_YARDS

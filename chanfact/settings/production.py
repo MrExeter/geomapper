@@ -7,7 +7,7 @@ import django_heroku
 
 SECRET_KEY = config('SECRET_KEY')
 API_KEY = config('API_KEY')
-DEBUG = True
+DEBUG = False
 
 
 ###############################################################################
