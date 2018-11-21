@@ -1,6 +1,6 @@
-#Exercise in GeoCoding  
+# Exercise in GeoCoding  
 
-_***Requirements & Dependencies:***_  
+_*** Requirements & Dependencies: ***_  
 
 1. Install all packages listed in requirements.txt
 2. Python 3.6.0
