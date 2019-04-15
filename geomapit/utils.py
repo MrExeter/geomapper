@@ -19,6 +19,7 @@ BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?"
 
 
 class GeoCoder:
+    """GeoCoder Class"""
 
     @classmethod
     def distance_between_points(cls, coordinate_pair, units):

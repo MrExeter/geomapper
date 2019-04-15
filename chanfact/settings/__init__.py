@@ -4,7 +4,7 @@
 #
 # For Development
 #
-# from .development import *
+from .development import *
 
 
 ###############################################################################
@@ -12,4 +12,4 @@
 # For production
 #
 
-from .production import *
+# from .production import *

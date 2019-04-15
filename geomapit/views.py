@@ -15,7 +15,8 @@ from geomapit.utils import GeoCoder
 
 @login_required
 def geodistance_address(request):
-
+    """Calculates distance between two street addresses in either meters \
+    or yards"""
     if request.method == 'POST':
         form = GeoDistanceAddressForm(request.POST)
         if form.is_valid():
@@ -81,7 +82,8 @@ def geodistance_address(request):
 
 @login_required
 def geodistance_geocode(request):
-
+    """Calculates distance between two pairs of coordinates (lat, long) in either \
+    meters or yards"""
     if request.method == 'POST':
         form = GeoDistanceForm(request.POST)
         if form.is_valid():
