@@ -36,5 +36,5 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.2
 sphinxcontrib-serializinghtml==1.1.1
 sqlparse==0.2.4
-urllib3==1.24
+urllib3==1.26.5
 whitenoise==3.3.1
